@@ -8,8 +8,15 @@ import 'screens/register_screen.dart';
 import 'screens/welcome_screen.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => CounterProvider()),
@@ -49,6 +56,6 @@ void main() {
           '/counter': (context) => const CounterScreen(),
         },
       ),
-    ),
-  );
+    );
+  }
 }
